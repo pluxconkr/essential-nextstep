@@ -1,0 +1,6 @@
+[
+  { "key": "college", "name": "College path", "nameEs": "Camino a la universidad", "order": 1 },
+  { "key": "career", "name": "Career path", "nameEs": "Camino profesional", "order": 2 },
+  { "key": "language", "name": "Language & family", "nameEs": "Idioma y familia", "order": 3 },
+  { "key": "study", "name": "Study skills", "nameEs": "Hábitos de estudio", "order": 4 }
+]

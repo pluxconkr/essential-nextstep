@@ -51,7 +51,8 @@
         {
           "photosPermission": "NextStep uses a screenshot you choose only to confirm a step you finished. Only you and your mentor can see it, and it is deleted after 90 days."
         }
-      ]
+      ],
+      "expo-asset"
     ],
     "experiments": {
       "typedRoutes": true,

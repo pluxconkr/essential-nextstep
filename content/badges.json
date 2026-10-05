@@ -1,0 +1,112 @@
+[
+  {
+    "key": "aid-applicant",
+    "name": "Aid Applicant",
+    "nameEs": "Solicitante de ayuda",
+    "icon": "dollarsign.circle",
+    "description": "3 of 4 financial aid steps verified",
+    "descriptionEs": "3 de 4 pasos de ayuda financiera verificados",
+    "criteria": { "kind": "steps_verified", "stepKeys": ["aid-application", "cal-grant-gpa", "aid-letters", "family-aid-night"], "min": 3 },
+    "unlocks": ["peer_helper_aid", "aid_night_volunteer"]
+  },
+  {
+    "key": "aid-ready",
+    "name": "Aid Ready",
+    "nameEs": "Ayuda lista",
+    "icon": "checkmark.seal",
+    "description": "All 4 aid steps verified, Cal Grant GPA confirmed",
+    "descriptionEs": "Los 4 pasos de ayuda verificados y el GPA de Cal Grant confirmado",
+    "criteria": { "kind": "steps_verified", "stepKeys": ["aid-application", "cal-grant-gpa", "aid-letters", "family-aid-night"], "min": 4 },
+    "unlocks": ["peer_helper_aid"]
+  },
+  {
+    "key": "ag-navigator",
+    "name": "A-G Navigator",
+    "nameEs": "Navegante A-G",
+    "icon": "map",
+    "description": "A-G audit done and one gap fixed",
+    "descriptionEs": "Revisión A-G hecha y una materia corregida",
+    "criteria": { "kind": "steps_verified", "stepKeys": ["ag-audit", "ag-gap-fix"], "min": 2 },
+    "unlocks": ["peer_helper_ag"]
+  },
+  {
+    "key": "dual-enrolled",
+    "name": "Dual Enrolled",
+    "nameEs": "Inscripción doble",
+    "icon": "graduationcap",
+    "description": "Enrolled in a college class while in high school",
+    "descriptionEs": "Inscrito en una clase universitaria durante la preparatoria",
+    "criteria": { "kind": "steps_verified", "stepKeys": ["dual-enrollment"], "min": 1 },
+    "unlocks": []
+  },
+  {
+    "key": "applied",
+    "name": "Applied",
+    "nameEs": "Solicitud enviada",
+    "icon": "paperplane",
+    "description": "One college application submitted",
+    "descriptionEs": "Una solicitud universitaria enviada",
+    "criteria": { "kind": "steps_verified", "stepKeys": ["csu-apply", "uc-apply", "ccc-apply"], "min": 1 },
+    "unlocks": []
+  },
+  {
+    "key": "biliterate",
+    "name": "Biliterate",
+    "nameEs": "Bilingüe certificado",
+    "icon": "globe",
+    "description": "Seal of Biliteracy requirements met",
+    "descriptionEs": "Requisitos del Sello de Alfabetización Bilingüe cumplidos",
+    "criteria": { "kind": "steps_verified", "stepKeys": ["seal-biliteracy"], "min": 1 },
+    "unlocks": []
+  },
+  {
+    "key": "circle-regular",
+    "name": "Circle Regular",
+    "nameEs": "Habitual del círculo",
+    "icon": "person.3",
+    "description": "8 of 10 consecutive circle weeks",
+    "descriptionEs": "8 de 10 semanas seguidas en el círculo",
+    "criteria": { "kind": "circle_weeks", "min": 8, "of": 10 },
+    "unlocks": []
+  },
+  {
+    "key": "peer-helper",
+    "name": "Peer Helper",
+    "nameEs": "Ayudante",
+    "icon": "hand.raised",
+    "description": "Helped 3 students with steps you verified",
+    "descriptionEs": "Ayudaste a 3 estudiantes con pasos que verificaste",
+    "criteria": { "kind": "peers_helped", "min": 3 },
+    "unlocks": ["peer_helper"]
+  },
+  {
+    "key": "contributor",
+    "name": "Contributor",
+    "nameEs": "Colaborador",
+    "icon": "doc.badge.plus",
+    "description": "2 resources accepted after review",
+    "descriptionEs": "2 recursos aceptados tras revisión",
+    "criteria": { "kind": "resources_accepted", "min": 2 },
+    "unlocks": []
+  },
+  {
+    "key": "landed",
+    "name": "Landed",
+    "nameEs": "Llegaste",
+    "icon": "flag.checkered",
+    "description": "Accepted an offer",
+    "descriptionEs": "Aceptaste una oferta",
+    "criteria": { "kind": "steps_verified", "stepKeys": ["sir"], "min": 1 },
+    "unlocks": ["mentor_track"]
+  },
+  {
+    "key": "mentor-ready",
+    "name": "Mentor Ready",
+    "nameEs": "Mentor listo",
+    "icon": "star",
+    "description": "Aid Ready, Circle Regular and Landed — eligible to mentor next year",
+    "descriptionEs": "Ayuda lista, habitual del círculo y llegaste: puedes ser mentor el próximo año",
+    "criteria": { "kind": "badges", "badgeKeys": ["aid-ready", "circle-regular", "landed"] },
+    "unlocks": ["mentor_track"]
+  }
+]

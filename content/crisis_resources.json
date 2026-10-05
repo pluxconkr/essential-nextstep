@@ -1,0 +1,38 @@
+[
+  {
+    "key": "988",
+    "name": "988 Suicide & Crisis Lifeline",
+    "nameEs": "Línea 988 de Prevención del Suicidio y Crisis",
+    "action": "Call or text 988, any time. Free and confidential.",
+    "actionEs": "Llama o envía un mensaje al 988, a cualquier hora. Para español, marca 988 y luego el 2. Gratis y confidencial.",
+    "reviewedBy": "PENDING — bilingual counselor sign-off required before launch",
+    "reviewedAt": "2026-10-05"
+  },
+  {
+    "key": "crisis-text-line",
+    "name": "Crisis Text Line",
+    "nameEs": "Crisis Text Line",
+    "action": "Text HOME to 741741 to reach a trained counselor.",
+    "actionEs": "Envía AYUDA al 741741 para hablar con un consejero capacitado.",
+    "reviewedBy": "PENDING — bilingual counselor sign-off required before launch",
+    "reviewedAt": "2026-10-05"
+  },
+  {
+    "key": "911",
+    "name": "If someone is in danger right now",
+    "nameEs": "Si alguien está en peligro ahora mismo",
+    "action": "Call 911.",
+    "actionEs": "Llama al 911.",
+    "reviewedBy": "PENDING — bilingual counselor sign-off required before launch",
+    "reviewedAt": "2026-10-05"
+  },
+  {
+    "key": "school-counselor",
+    "name": "Your school counselor",
+    "nameEs": "El consejero de tu escuela",
+    "action": "A counselor at your school has been told you may need to talk. You can also ask the coordinator to set up a time.",
+    "actionEs": "Un consejero de tu escuela ya sabe que quizás necesites hablar. También puedes pedirle al coordinador una cita.",
+    "reviewedBy": "PENDING — bilingual counselor sign-off required before launch",
+    "reviewedAt": "2026-10-05"
+  }
+]

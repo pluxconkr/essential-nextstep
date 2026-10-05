@@ -1,0 +1,9 @@
+{
+  "2026-27": {
+    "aid_night": { "from": "2027-02-11", "to": "2027-02-11", "label": "Cash for College night (demo date — confirm with the district)" },
+    "aid_night_interpreter": { "from": "2027-02-01", "to": "2027-02-09", "label": "Interpreter requests for the aid night (48 h notice)" },
+    "spring_conferences": { "from": "2027-03-15", "to": "2027-03-20", "label": "Spring parent conferences (demo date — confirm with the district)" },
+    "course_selection": { "from": "2027-03-01", "to": "2027-04-15", "label": "Course selection for next year (demo date — confirm with the district)" },
+    "seal_assessment": { "from": "2027-04-01", "to": "2027-04-30", "label": "District language assessment window (demo date — confirm with the district)" }
+  }
+}
