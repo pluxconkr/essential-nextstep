@@ -40,7 +40,7 @@ const today = new Date();
 const todayIso = today.toISOString().slice(0, 10);
 
 const content: Content = {
-  version: '',
+  version: 'unbuilt', // replaced by the content hash after validation
   builtAt: today.toISOString(),
   tracks: read('tracks.json'),
   steps: read('steps.json'),

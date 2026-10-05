@@ -200,6 +200,27 @@ export function needsReverification(step: Pick<Step, 'lastVerified'>, nowMs: num
   return daysSinceVerified(step, nowMs) > WARN_AFTER_DAYS;
 }
 
+function shiftIso(iso: string, days: number): string {
+  const ms = Date.parse(`${iso}T12:00:00Z`);
+  if (!Number.isFinite(ms)) return iso;
+  return new Date(ms + days * 86_400_000).toISOString().slice(0, 10);
+}
+
+/**
+ * Move every verification date by `days`. Used only by demo scenarios, whose clock is a fiction set
+ * months ahead: content verified today must read as verified "recently" inside that fiction, or the
+ * staleness rule (correctly) hides everything. Never used for real data.
+ */
+export function shiftVerificationDates(content: Content, days: number): Content {
+  if (days === 0) return content;
+  return {
+    ...content,
+    steps: content.steps.map((s) => ({ ...s, lastVerified: shiftIso(s.lastVerified, days), verifyBy: shiftIso(s.verifyBy, days) })),
+    resources: content.resources.map((r) => ({ ...r, verifiedAt: shiftIso(r.verifiedAt, days) })),
+    glossary: content.glossary.map((g) => ({ ...g, reviewedAt: shiftIso(g.reviewedAt, days) })),
+  };
+}
+
 export function visibleSteps(content: Content, nowMs: number): Step[] {
   return content.steps.filter((s) => !isStale(s, nowMs));
 }

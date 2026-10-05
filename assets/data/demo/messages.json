@@ -1,0 +1,53 @@
+{
+  "match-daniela": [
+    {
+      "id": "msg-rules",
+      "sender": "system",
+      "body": "This conversation is logged and can be reviewed by the program coordinator at Valley High. Phone numbers, addresses and social handles are blocked automatically — for both of you. Coordinators are trained adults and mandated reporters.",
+      "scopeStepKey": null,
+      "minutesBeforeFrame": 1500
+    },
+    {
+      "id": "msg-1",
+      "sender": "mentor",
+      "body": "Hey! I saw you started the Dream Act app. How far did you get?",
+      "scopeStepKey": "aid-application",
+      "minutesBeforeFrame": 1440
+    },
+    {
+      "id": "msg-2",
+      "sender": "student",
+      "body": "I got to the parent tax section and stopped. My mom filed with an ITIN and I don't know what to put.",
+      "scopeStepKey": "aid-application",
+      "minutesBeforeFrame": 1410
+    },
+    {
+      "id": "msg-3",
+      "sender": "mentor",
+      "body": "That's exactly where I got stuck too. You use the ITIN in the parent SSN field — it's allowed. There is a walkthrough on the step with a picture of that screen.",
+      "scopeStepKey": "aid-application",
+      "minutesBeforeFrame": 1380
+    },
+    {
+      "id": "msg-4",
+      "sender": "student",
+      "body": "ok that helps, thank you",
+      "scopeStepKey": "aid-application",
+      "minutesBeforeFrame": 1370
+    },
+    {
+      "id": "msg-scope",
+      "sender": "system",
+      "body": "Daniela verified this step (Dream Act application, March 2026). Mentors can only give step-level help on steps they have completed.",
+      "scopeStepKey": "aid-application",
+      "minutesBeforeFrame": 1369
+    },
+    {
+      "id": "msg-5",
+      "sender": "mentor",
+      "body": "Also — ask your mom for the 2024 1040 before Tuesday and bring it to the circle. We can check it in person before you submit. My mentor made me do that and it saved me two weeks.",
+      "scopeStepKey": "aid-application",
+      "minutesBeforeFrame": 1350
+    }
+  ]
+}
