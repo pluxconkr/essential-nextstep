@@ -35,7 +35,7 @@ import { evaluate as evaluateBadges, newlyEarned } from '@/domain/badges';
 import { pointsFor } from '@/domain/effort';
 import { newId } from '@/domain/ids';
 import { generate, toStudentSteps } from '@/domain/roadmap';
-import { nowIso, nowMs } from '@/domain/time';
+import { nowIso, nowMs, setClockOffset } from '@/domain/time';
 import type { CacheMetaMap, Content, EarnedBadge, EffortEvent, EffortKind, Match, Message, StudentProfile, StudentStep, VerificationPath } from '@/domain/types';
 
 export interface NetworkInfo {
@@ -319,6 +319,7 @@ export const actions = {
 
   resetAll(): void {
     resetAllData();
+    setClockOffset(0); // a reset always returns to real time
     const { content, source } = contentRepo.get();
     setState({
       onboarded: false,

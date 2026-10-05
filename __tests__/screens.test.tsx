@@ -55,10 +55,18 @@ beforeEach(() => {
 
 afterAll(() => fetchSpy.mockRestore());
 
-/** Presses that navigate: wrap in an async act so the router's own updates settle before the next query. */
+/**
+ * Every event is wrapped in an awaited async act: a bare fireEvent followed by a findBy* query opens
+ * overlapping act scopes under React 19, which leaves later renders unflushed (empty trees).
+ */
 async function press(el: ReturnType<typeof screen.getByText>) {
   await act(async () => {
     fireEvent.press(el);
+  });
+}
+async function type(el: ReturnType<typeof screen.getByText>, text: string) {
+  await act(async () => {
+    fireEvent.changeText(el, text);
   });
 }
 
@@ -132,18 +140,18 @@ describe('Mentor, chat and guard', () => {
   test('the composer refuses a phone number before anything is sent', async () => {
     await renderRouter(routes, { initialUrl: '/chat/match-daniela' });
     const input = await screen.findByTestId('composer-input');
-    fireEvent.changeText(input, 'call me at (714) 555-0199');
+    await type(input, 'call me at (714) 555-0199');
     expect(await screen.findByText(/This looks like a phone number/)).toBeTruthy();
     const before = getState().messages['match-daniela'].length;
-    fireEvent.press(screen.getByTestId('composer-send'));
+    await press(screen.getByTestId('composer-send'));
     expect(getState().messages['match-daniela'].length).toBe(before);
   });
   test('a question is stored locally, marked pending, and counts as a question asked', async () => {
     await renderRouter(routes, { initialUrl: '/chat/match-daniela' });
     const input = await screen.findByTestId('composer-input');
     const q = getState().effort.filter((e) => e.kind === 'question_asked').length;
-    fireEvent.changeText(input, 'Is the March 2 deadline real?');
-    fireEvent.press(screen.getByTestId('composer-send'));
+    await type(input, 'Is the March 2 deadline real?');
+    await press(screen.getByTestId('composer-send'));
     expect(getState().messages['match-daniela'].at(-1)).toMatchObject({ sender: 'student', pending: true });
     expect(getState().effort.filter((e) => e.kind === 'question_asked').length).toBe(q + 1);
     expect(fetchSpy).not.toHaveBeenCalled();
@@ -176,7 +184,8 @@ describe('Circles, growth, profile, safety, family, data', () => {
     await renderRouter(routes, { initialUrl: '/growth' });
     expect(await screen.findByText(/effort points · level/)).toBeTruthy();
     expect(screen.getByText('Questions asked')).toBeTruthy();
-    expect(screen.queryByText(/leaderboard/i)).toBeNull();
+    expect(screen.getByText(/there is no public leaderboard/)).toBeTruthy(); // stated, never built
+    expect(screen.queryByText(/^#\d/)).toBeNull(); // no rank numbers anywhere
   });
   test('profile renders the student and the goals', async () => {
     await renderRouter(routes, { initialUrl: '/profile' });
@@ -204,10 +213,10 @@ describe('Circles, growth, profile, safety, family, data', () => {
 
 describe('Onboarding (real data, no demo)', () => {
   test('reaches one step in ten taps and stores the aid path as a form choice', async () => {
-    actions.resetAll();
+    applyDemoScenario('none'); // back to real data and the real clock
     await renderRouter(routes, { initialUrl: '/onboarding' });
     await press(await screen.findByTestId('onb-start'));
-    fireEvent.changeText(await screen.findByTestId('onb-name'), 'Kevin T.');
+    await type(await screen.findByTestId('onb-name'), 'Kevin T.');
     await press(screen.getByTestId('onb-continue'));
     await press(await screen.findByText('12'));
     await press(screen.getByTestId('onb-continue'));
