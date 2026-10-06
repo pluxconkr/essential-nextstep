@@ -93,15 +93,15 @@ const SF_TO_ION: Record<string, IonName> = {
 
 export function Icon({ name, size = 20, color, weight = 'regular', style, label }: { name: IconName; size?: number; color: string; weight?: SymbolWeight; style?: StyleProp<ViewStyle>; label?: string }) {
   const def = ICONS[name];
-  return <Symbol sf={def.sf} ion={def.ion} size={size} color={color} weight={weight} style={style} label={label} />;
+  return <Glyph sf={def.sf} ion={def.ion} size={size} color={color} weight={weight} style={style} label={label} />;
 }
 
 /** An icon named by content (badges). Unknown names fall back to a rosette. */
 export function ContentIcon({ sf, size = 20, color, style, label }: { sf: string; size?: number; color: string; style?: StyleProp<ViewStyle>; label?: string }) {
-  return <Symbol sf={sf} ion={SF_TO_ION[sf] ?? 'ribbon-outline'} size={size} color={color} weight="regular" style={style} label={label} />;
+  return <Glyph sf={sf} ion={SF_TO_ION[sf] ?? 'ribbon-outline'} size={size} color={color} weight="regular" style={style} label={label} />;
 }
 
-function Symbol({ sf, ion, size, color, weight, style, label }: { sf: string; ion: IonName; size: number; color: string; weight: SymbolWeight; style?: StyleProp<ViewStyle>; label?: string }) {
+function Glyph({ sf, ion, size, color, weight, style, label }: { sf: string; ion: IonName; size: number; color: string; weight: SymbolWeight; style?: StyleProp<ViewStyle>; label?: string }) {
   const a11y = label ? { accessible: true as const, accessibilityLabel: label, accessibilityRole: 'image' as const } : { accessible: false as const, importantForAccessibility: 'no-hide-descendants' as const, accessibilityElementsHidden: true };
   if (Platform.OS === 'ios') {
     return (
